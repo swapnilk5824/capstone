@@ -1,0 +1,26 @@
+{
+  "project": "codeguard-multi-agent-review",
+  "description": "Multi-agent code review swarm capstone. Claude Code / Cowork sessions on this repo should treat src/agents/*.py as the authoritative agent definitions and src/pipeline.py as the orchestration graph.",
+  "permissions": {
+    "allow": [
+      "Bash(python3 main.py *)",
+      "Bash(python3 -m pytest *)",
+      "Read(./src/**)",
+      "Read(./sample_data/**)",
+      "Edit(./src/**)",
+      "Edit(./tests/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Edit(./sample_data/pr_*/pr.json)"
+    ]
+  },
+  "env": {
+    "CODEGUARD_MODE": "mock"
+  },
+  "notes": [
+    "Default CODEGUARD_MODE=mock so the suite runs without credentials.",
+    "Set CODEGUARD_MODE=live and export ANTHROPIC_API_KEY to exercise real Claude calls with the flag_finding tool.",
+    "sample_data/pr_*/pr.json files are the fixed acceptance-criterion fixtures — deny-listed from casual edits; change deliberately if you update tests/test_acceptance.py to match."
+  ]
+}

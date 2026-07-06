@@ -1,0 +1,16 @@
+{
+  "title": "Add logging helper for request tracing",
+  "description": "Adds a small helper to log request IDs with tests.",
+  "files": [
+    {
+      "path": "src/tracing.py",
+      "status": "added",
+      "diff": "+def LogRequest(request_id, message):\n+    \"\"\"Log a request id and message to stdout.\"\"\"\n+    print(f\"[{request_id}] {message}\")\n"
+    },
+    {
+      "path": "tests/test_tracing.py",
+      "status": "added",
+      "diff": "+def test_log_request_runs():\n+    LogRequest(\"abc123\", \"hello\")\n"
+    }
+  ]
+}

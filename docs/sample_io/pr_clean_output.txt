@@ -1,0 +1,10 @@
+
+# Code Review Report: Add discount calculation helper
+
+**Decision: APPROVE**
+
+**Summary:** no issues found
+
+No issues found across security, style, logic, test coverage, or documentation checks.
+
+**Merge policy:** Mergeable. No blocking issues found.

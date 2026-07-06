@@ -1,0 +1,13 @@
+
+# Code Review Report: Add logging helper for request tracing
+
+**Decision: APPROVE_WITH_COMMENTS**
+
+**Summary:** 2 minor
+
+- **[MINOR][style]** `src/tracing.py:1` — Function name 'LogRequest' should be snake_case
+  - *Suggestion:* Rename to snake_case per PEP8.
+- **[MINOR][style]** `src/tracing.py:3` — Debug print/console.log left in code
+  - *Suggestion:* Remove or replace with proper logging.
+
+**Merge policy:** Mergeable. Minor findings left as follow-up comments, not blocking.

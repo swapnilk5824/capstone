@@ -1,0 +1,17 @@
+
+# Code Review Report: Add average calculation utility
+
+**Decision: REQUEST_CHANGES**
+
+**Summary:** 2 major, 2 minor
+
+- **[MAJOR][logic]** `src/stats.py:3` — Division by len(...) without a zero-length guard — possible ZeroDivisionError
+  - *Suggestion:* Add a guard: `if len(x) == 0: ...` before dividing.
+- **[MAJOR][testing]** `src/stats.py` — Source file has non-trivial changes but no test file was added or updated in this PR
+  - *Suggestion:* Add or update unit tests covering the new/changed behavior.
+- **[MINOR][docs]** `src/stats.py:1` — Public 'average' has no docstring
+  - *Suggestion:* Add a one-line docstring describing purpose, args, and return value.
+- **[MINOR][docs]** `src/stats.py:5` — Public 'normalize' has no docstring
+  - *Suggestion:* Add a one-line docstring describing purpose, args, and return value.
+
+**Merge policy:** Merge blocked until major findings are addressed by the author.

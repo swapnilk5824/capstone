@@ -1,0 +1,17 @@
+
+# Code Review Report: Add S3 backup script
+
+**Decision: BLOCK**
+
+**Summary:** 2 blocker, 1 major, 1 minor
+
+- **[BLOCKER][security]** `src/backup.py:3` — Hardcoded credential/secret found
+  - *Suggestion:* Move secrets to environment variables/secret manager; avoid eval/exec on external input; use parameterized queries.
+- **[BLOCKER][security]** `src/backup.py:6` — subprocess call with shell=True (injection risk if input is unsanitized)
+  - *Suggestion:* Move secrets to environment variables/secret manager; avoid eval/exec on external input; use parameterized queries.
+- **[MAJOR][testing]** `src/backup.py` — Source file has non-trivial changes but no test file was added or updated in this PR
+  - *Suggestion:* Add or update unit tests covering the new/changed behavior.
+- **[MINOR][docs]** `src/backup.py:5` — Public 'run_backup' has no docstring
+  - *Suggestion:* Add a one-line docstring describing purpose, args, and return value.
+
+**Merge policy:** Merge blocked. Requires human security sign-off before this PR can proceed.

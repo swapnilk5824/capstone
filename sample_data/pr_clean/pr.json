@@ -1,0 +1,16 @@
+{
+  "title": "Add discount calculation helper",
+  "description": "Adds a pure function to compute a discounted price, with unit tests.",
+  "files": [
+    {
+      "path": "src/pricing.py",
+      "status": "modified",
+      "diff": "+def apply_discount(price, percent):\n+    \"\"\"Return price after applying a percentage discount.\"\"\"\n+    if percent < 0 or percent > 100:\n+        raise ValueError(\"percent must be between 0 and 100\")\n+    return price * (1 - percent / 100)\n"
+    },
+    {
+      "path": "tests/test_pricing.py",
+      "status": "added",
+      "diff": "+def test_apply_discount_basic():\n+    assert apply_discount(100, 10) == 90\n+\n+def test_apply_discount_invalid_percent():\n+    import pytest\n+    with pytest.raises(ValueError):\n+        apply_discount(100, 150)\n"
+    }
+  ]
+}

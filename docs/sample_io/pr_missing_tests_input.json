@@ -1,0 +1,11 @@
+{
+  "title": "Add average calculation utility",
+  "description": "Adds a helper to compute the average of a list of numbers.",
+  "files": [
+    {
+      "path": "src/stats.py",
+      "status": "added",
+      "diff": "+def average(values):\n+    total = sum(values)\n+    return total / len(values)\n+\n+def normalize(values):\n+    m = average(values)\n+    return [v - m for v in values]\n"
+    }
+  ]
+}
